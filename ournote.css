@@ -148,6 +148,14 @@ p:last-child { margin-bottom: 0; }
 }
 .btn-ghost:hover { background: var(--wash); }
 
+/* Sits between the buttons and the availability pill, the way scratchd.net
+   puts its price under the store badge. */
+.price-note {
+  margin: 16px 0 0;
+  font-size: 15.5px;
+  color: var(--muted);
+}
+
 .status {
   display: inline-flex; align-items: center; gap: 9px;
   margin-top: 26px; padding: 7px 15px 7px 12px;
