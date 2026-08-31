@@ -5,19 +5,27 @@
 
    Light is the default: :root carries the light values, and dark is an
    override. That is the opposite of scratchd.net, and deliberate. theme.js
-   always stamps data-theme, so :root alone only shows with JavaScript off. */
+   always stamps data-theme, so :root alone only shows with JavaScript off.
+
+   The neutrals are tinted violet rather than grey, the way scratchd.net runs
+   warm and carddle.net runs teal. Violet is this app's own colour, so the page
+   should be violet the way the icon is. The brand values themselves are still
+   the app's exact tokens; only the greys have been pulled toward them.
+
+   A dark violet has to keep red clearly above green or it composites back to
+   navy and reads as a cold grey. #14101c is hue 262, not 230. */
 
 :root {
   color-scheme: light;
 
   --bg:        #f8f7ff;
   --card:      #ffffff;
-  --surface:   #f0eeff;
+  --surface:   #ece7ff;
   --text:      #2d2d3a;
   --muted:     #6a6a78;
-  --faint:     #8e8e9a;
-  --line:      #e6e4f5;
-  --line-soft: rgba(45, 45, 58, 0.07);
+  --faint:     #736f85;
+  --line:      #e0daf5;
+  --line-soft: rgba(94, 78, 168, 0.13);
 
   --violet: #6c63ff;
   --pink:   #e0457b;
@@ -41,14 +49,14 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --bg:        #12131b;
-  --card:      #1c1c24;
-  --surface:   #26262f;
+  --bg:        #14101c;
+  --card:      #1e1929;
+  --surface:   #292236;
   --text:      #f2f2f7;
   --muted:     #a3a3b0;
-  --faint:     #83838f;
-  --line:      #33333d;
-  --line-soft: rgba(255, 255, 255, 0.07);
+  --faint:     #8d88a0;
+  --line:      #38304a;
+  --line-soft: rgba(178, 170, 255, 0.11);
 
   --violet: #8b85ff;
   --pink:   #ff8fb5;
