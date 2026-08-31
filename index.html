@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Note — a shared daily note for one family</title>
+  <meta name="description" content="A shared daily note for one family, with a journal you can read back, birthdays, plans and check-ins. No account. Nothing leaves your family's iCloud." />
+  <link rel="canonical" href="https://ournote.net/" />
+  <link rel="icon" href="assets/ournote/icon-128.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/ournote/icon-256.png" />
+  <link rel="stylesheet" href="ournote.css" />
+  <meta name="theme-color" content="#f8f7ff" />
+  <script src="theme.js"></script>
+  <link rel="alternate" type="application/rss+xml" title="Innovatory" href="https://innovatory.xyz/feed.xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Our Note — a shared daily note for one family" />
+  <meta property="og:description" content="A shared daily note for one family. No account, and nothing leaves your family's iCloud." />
+  <meta property="og:url" content="https://ournote.net/" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="nav-home" href="./">
+        <img src="assets/ournote/icon-128.png" alt="" width="22" height="22" style="border-radius:5px" />
+        <span>Our Note</span>
+      </a>
+      <div class="nav-links">
+        <a href="#today" class="optional">Today</a>
+        <a href="#checkin" class="optional">Check in</a>
+        <a href="#journal" class="optional">Journal</a>
+        <a href="#plans" class="optional">Plans</a>
+        <a href="#privacy">Privacy</a>
+        <a href="https://innovatory.xyz/" class="optional">Innovatory</a>
+        <span data-theme-mount></span>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+      <div class="wrap">
+        <img src="assets/ournote/icon-256.png" alt="Our Note app icon" class="app-icon" width="92" height="92" />
+        <p class="wordmark">Our Note</p>
+        <h1>The whole family writes in the same note.</h1>
+        <p class="hero-sub">
+          Everyone adds to the same day. Later it becomes something you can read back.
+          There is <strong>no account</strong>, and nothing leaves your family's own iCloud.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn" href="mailto:ournote@innovatory.xyz?subject=Our%20Note%20beta&amp;body=I%27d%20like%20to%20try%20the%20beta.">Ask for the beta</a>
+          <a class="btn btn-ghost" href="privacy/">What it stores</a>
+        </div>
+
+        <p class="status">
+          <span class="dot" aria-hidden="true"></span>
+          In development. iPhone and iPad, with a TestFlight beta soon.
+        </p>
+      </div>
+    </header>
+
+    <!-- ============ TODAY ============ -->
+    <section class="section" id="today">
+      <div class="narrow">
+        <h2>Today is a page, not a feed.</h2>
+        <p class="lede">
+          Everyone in the family writes into the same day. A line about school, a photo from
+          the afternoon, a question for whoever reads it next.
+        </p>
+        <p>
+          An entry is capped at 200 words and one photo, and there are only so many a day each.
+          Those limits are the point. They are what keeps this a note instead of turning into
+          another group chat nobody wants to open.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CHECK IN ============ -->
+    <section class="section" id="checkin">
+      <div class="narrow">
+        <h2>How was your day, in two taps.</h2>
+        <p>
+          Pick a face. That is a complete answer, and for a lot of kids it is the only one you
+          will get. If there is more to say, each one opens into a few closer words: happy
+          becomes proud, or grateful, or content.
+        </p>
+
+        <div class="moods" aria-hidden="true">
+          <div class="mood">😊</div><div class="mood">🥰</div><div class="mood">🤩</div><div class="mood">🤓</div>
+          <div class="mood">😌</div><div class="mood">😢</div><div class="mood">😰</div><div class="mood">😠</div>
+          <div class="mood">🤔</div><div class="mood">😴</div><div class="mood">🤒</div><div class="mood">😳</div>
+          <div class="mood">🤯</div><div class="mood">😐</div><div class="mood">🤪</div><div class="mood">😲</div>
+        </div>
+        <p class="mood-note">Sixteen to choose from. No typing, and no prompt to answer.</p>
+      </div>
+    </section>
+
+    <!-- ============ JOURNAL ============ -->
+    <section class="section" id="journal">
+      <div class="narrow">
+        <h2>The part you read back.</h2>
+        <p>
+          The journal is one card per day, newest first. Today is where you write and the
+          journal is where you look, and a year of ordinary days turns out to be worth
+          more than anyone expected at the time.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PLANS ============ -->
+    <section class="section" id="plans">
+      <div class="narrow">
+        <h2>The rest of what a family keeps track of.</h2>
+        <p>Alongside the day, without competing with it.</p>
+
+        <div class="cards">
+          <div class="card">
+            <span class="tag t-pink">Birthdays</span>
+            <h3>Everyone's, without re-entering them</h3>
+            <p>A birthday you put on someone's profile comes back every year on its own. Anniversaries and trips go in the same list.</p>
+          </div>
+          <div class="card">
+            <span class="tag t-blue">Ideas</span>
+            <h3>Gifts, trips, things to try</h3>
+            <p>The thought you have in March about a present for June, written down somewhere you will actually look in June.</p>
+          </div>
+          <div class="card">
+            <span class="tag t-violet">Threads</span>
+            <h3>A conversation per plan</h3>
+            <p>Every event and idea has its own thread. No word limit there, because it is attached to something that ends.</p>
+          </div>
+          <div class="card">
+            <span class="tag t-green">Polls</span>
+            <h3>Settle dinner</h3>
+            <p>Ask, everyone taps, results show straight away. Nobody has to vote blind to see where it is going.</p>
+          </div>
+        </div>
+
+        <p style="margin-top:26px">
+          Grown-ups can mark an event or an idea private, which keeps it off the kids' screens
+          so a surprise stays a surprise.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY ============ -->
+    <section class="section" id="privacy">
+      <div class="narrow">
+        <h2>There is no server to trust.</h2>
+        <p>
+          Our Note is built on your family's own iCloud. We do not run anything your notes pass
+          through, so there is nothing on our side to leak, sell, or be asked for.
+        </p>
+
+        <ul class="facts">
+          <li><b>No account</b><span>Nothing to create, no email, no password. The iCloud account already signed in on the device is who you are.</span></li>
+          <li><b>End to end encrypted</b><span>Everything anyone writes, plus photos and birthdays, is encrypted so that Apple cannot read it either.</span></li>
+          <li><b>Your family only</b><span>One family shares one invitation. Nobody outside it can see any of it.</span></li>
+          <li><b>Nothing collected</b><span>No analytics, no crash reporting, no third party anything.</span></li>
+        </ul>
+
+        <p style="margin-top:26px">
+          <a href="privacy/">The longer version</a>, if you want to check.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ OBVIOUS ============ -->
+    <section class="section" id="plain">
+      <div class="narrow">
+        <h2>An eight year old has to be able to use it.</h2>
+        <p>
+          That was the rule the whole time. Nothing important is behind a long press, a swipe,
+          or a gesture you have to be told about. If a thing can be done, you can see how.
+        </p>
+        <p>
+          Which turns out to suit the grandparents too.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section" id="status">
+      <div class="narrow">
+        <h2>Where it is up to.</h2>
+        <p>
+          Our Note is being built and used by one family, ours, on real devices. It is not on
+          the App Store yet. A TestFlight beta is the next thing, for iPhone and iPad.
+        </p>
+        <p>
+          <a href="mailto:ournote@innovatory.xyz?subject=Our%20Note%20beta&amp;body=I%27d%20like%20to%20try%20the%20beta.">Email me</a>
+          and I will send the link when there is one.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <p class="footer-tag">Our Note — a shared daily note for one family.</p>
+          <p class="footer-plat">iPhone · iPad · in development</p>
+        </div>
+        <div class="footer-links">
+          <a href="support/">Support</a>
+          <a href="privacy/">Privacy</a>
+          <a href="mailto:ournote@innovatory.xyz">Contact</a>
+          <a href="https://innovatory.xyz/feed.xml">Feed</a>
+          <a href="https://innovatory.xyz/">Innovatory</a>
+        </div>
+      </div>
+      <p class="footer-note">
+        Your family's notes live in your family's iCloud. Innovatory does not run a server that holds them.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
