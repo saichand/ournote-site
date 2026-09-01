@@ -31,7 +31,7 @@
   <main class="doc">
     <div class="narrow">
       <h1>Privacy</h1>
-      <p class="updated">Last updated 31 August 2026</p>
+      <p class="updated">Last updated 1 September 2026</p>
 
       <p>
         Our Note has no server. Innovatory does not receive, store or process anything you
@@ -49,9 +49,10 @@
       <h2>Encryption</h2>
       <p>
         What people write is end to end encrypted, using CloudKit's own encrypted fields.
-        That covers the text and photos of an entry, the words of a check-in and its
-        sub-feelings, event and idea titles and notes, poll questions and options, thread
-        messages, and birthdays. Apple stores those values without being able to read them.
+        That covers the text and photos of an entry, voice notes and their transcripts, the
+        words of a check-in and its sub-feelings, event and idea titles and notes, poll
+        questions and options, thread messages, and birthdays. Apple stores those values
+        without being able to read them.
       </p>
       <p>
         Some things are not encrypted, and it is worth knowing which. Names, profile emoji and
@@ -65,6 +66,21 @@
         code of any kind in the app. It has no software dependencies beyond Apple's own
         frameworks, and it makes no network requests other than syncing your data through
         iCloud.
+      </p>
+
+      <h2>Voice notes</h2>
+      <p>
+        A voice note is recorded on the device and is capped at thirty seconds. It is
+        transcribed on the device itself, using on-device speech recognition, so the audio
+        is never sent anywhere to be turned into text. If a device cannot do the
+        transcription locally, Our Note stores the recording without a transcript rather
+        than falling back to a server.
+      </p>
+      <p>
+        The microphone and speech recognition permissions are asked for the first time you
+        tap the record button, and only then. Both can be refused and the rest of the app
+        works as normal. The recording and its transcript are stored the same way as
+        everything else: in your family's iCloud, end to end encrypted.
       </p>
 
       <h2>Sharing with your family</h2>

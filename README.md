@@ -28,4 +28,16 @@ as the app changes:
   screens but still sync to their devices, and that this is not a security
   boundary. That matches `Visibility.swift`. If a second `CKShare` for parents
   ever lands, update that section.
-- The site says Our Note is in development and not on the App Store.
+- The privacy page also says removing a member does not revoke their access.
+  `EditProfileView.remove(keepingEntries:)` deletes the `CDFamilyMember` row and
+  never touches the `CKShare`, and there is no `removeParticipant` call anywhere.
+  If that changes, this is the first page to fix.
+- The encryption list covers the fifteen attributes carrying
+  `allowsCloudEncryption` in the Core Data model. Names, profile emoji, role and
+  which mood face was chosen are **not** among them, and the page says so. Recount
+  when the model changes.
+- Voice notes are transcribed with `requiresOnDeviceRecognition = true` and the
+  app stores audio without a transcript rather than falling back to Apple's
+  servers. The privacy page states this, so it has to stay true.
+- The site says Our Note is in TestFlight, priced $7.99 when it ships, and not on
+  the App Store.
