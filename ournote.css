@@ -282,6 +282,30 @@ p:last-child { margin-bottom: 0; }
   font-size: 14.5px; color: var(--faint);
 }
 
+
+/* Dynamic Island. A screen capture only holds the framebuffer, so the status
+   bar has the gap but not the pill. Drawn here so the web screens match the
+   framed App Store panels, which illustrate the phone rather than capture it.
+
+   126 x 37.33pt sitting 11pt down, on a 440pt wide screen: 28.64%, 8.48% and
+   2.50% of the width. The island is the same physical size on the 16 Pro, so
+   carddle.net uses larger percentages off its narrower 402pt capture. */
+.clip-frame::after,
+.shot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2.5cqw;
+  width: 28.64cqw;
+  height: 8.48cqw;
+  border-radius: 4.24cqw;
+  background: #000;
+  pointer-events: none;
+}
+
+.shot { position: relative; }
+
 /* ---------- mood grid ---------- */
 
 .moods {
