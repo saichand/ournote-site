@@ -69,22 +69,63 @@
 
     <!-- ============ TODAY ============ -->
     <section class="section" id="today">
-      <div class="narrow">
-        <h2>Today is a page, not a feed.</h2>
-        <p class="lede">
-          Everyone in the family writes into the same day. A line about school, a photo from
-          the afternoon, a question for whoever reads it next.
-        </p>
-        <p>
-          You can also say it instead of typing it. A voice note runs up to thirty seconds and
-          is transcribed on your own device, so the words are there to read and nobody has to
-          find somewhere quiet to listen.
-        </p>
-        <p>
-          An entry is capped at 200 words and one photo, and there are only so many a day each.
-          Those limits are the point. They are what keeps this a note instead of turning into
-          another group chat nobody wants to open.
-        </p>
+      <div class="wrap showcase">
+        <div class="showcase-text">
+          <h2>Today is a page, not a feed.</h2>
+          <p class="lede">
+            Everyone in the family writes into the same day. A line about school, a photo from
+            the afternoon, a question for whoever reads it next.
+          </p>
+          <p>
+            You can also say it instead of typing it. A voice note runs up to thirty seconds and
+            is transcribed on your own device, so the words are there to read and nobody has to
+            find somewhere quiet to listen.
+          </p>
+          <p>
+            An entry is capped at 200 words and one photo, and there are only so many a day each.
+            Those limits are the point. They are what keeps this a note instead of turning into
+            another group chat nobody wants to open.
+          </p>
+        </div>
+
+        <figure class="clip">
+          <div class="clip-frame">
+            <video src="assets/ournote/demo.mp4" poster="assets/ournote/demo-poster.webp"
+                   muted playsinline preload="metadata"
+                   aria-label="Our Note being used on an iPhone"></video>
+            <button class="clip-play" type="button" aria-label="Play the demo">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="11.2" />
+                <path class="i-play" d="M9.6 7.6 L16.6 12 L9.6 16.4 Z" />
+                <path class="i-pause" d="M9.4 7.8h1.9v8.4H9.4z M12.7 7.8h1.9v8.4h-1.9z" />
+              </svg>
+            </button>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SHOTS ============ -->
+    <section class="section tight" aria-label="Our Note on iPhone">
+      <div class="wrap">
+        <div class="shots">
+          <figure class="shot">
+            <img src="assets/ournote/shot-today.webp" alt="The Today screen, with the day, a check-in, what is coming up and recent ideas" width="480" height="1043" loading="lazy" />
+            <figcaption>Today</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/ournote/shot-day.webp" alt="One day, with entries from several people, a check-in and a poll" width="480" height="1043" loading="lazy" />
+            <figcaption>A day</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/ournote/shot-checkin.webp" alt="The check-in grid of sixteen faces" width="480" height="1043" loading="lazy" />
+            <figcaption>Check in</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/ournote/shot-events.webp" alt="Events, with birthdays, an anniversary and a trip" width="480" height="1043" loading="lazy" />
+            <figcaption>Events</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -233,5 +274,42 @@
       </p>
     </div>
   </footer>
+
+  <script>
+  /* One clip, so no sequencer. It plays once when it first scrolls into view and
+     the button then toggles it, which means a playing clip still has a control.
+     Reduced motion gets a poster and a play button and nothing moves on its own. */
+  (function () {
+    var fig = document.querySelector('.clip');
+    if (!fig) return;
+    var v = fig.querySelector('video');
+    var b = fig.querySelector('.clip-play');
+    var autoplayed = false;
+
+    function sync() { b.classList.toggle('playing', !v.paused && !v.ended); }
+    v.addEventListener('play', sync);
+    v.addEventListener('pause', sync);
+    v.addEventListener('ended', sync);
+
+    b.addEventListener('click', function () {
+      autoplayed = true;
+      if (v.paused || v.ended) { v.play().catch(function () {}); } else { v.pause(); }
+    });
+
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (still.matches || !('IntersectionObserver' in window)) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !autoplayed) {
+          autoplayed = true;
+          v.play().catch(function () {});
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    io.observe(fig);
+  })();
+  </script>
 </body>
 </html>

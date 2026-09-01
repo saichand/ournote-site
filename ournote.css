@@ -197,6 +197,87 @@ p:last-child { margin-bottom: 0; }
 .t-blue   { color: var(--blue); }
 .t-green  { color: var(--green); }
 
+/* ---------- showcase: text beside the clip ---------- */
+
+/* The Today section is the one place with something to show, so it uses the
+   full 1040 wrap rather than the 720 reading column. Below 860 the phone goes
+   under the text instead of squeezing both. */
+.showcase { display: grid; gap: 34px; align-items: center; }
+.showcase-text > p { color: var(--muted); max-width: var(--measure); }
+.showcase-text > p strong { color: var(--text); font-weight: 600; }
+.showcase-text h2 + p { margin-top: 14px; }
+
+@media (min-width: 860px) {
+  .showcase { grid-template-columns: minmax(0, 1fr) 268px; gap: 54px; }
+}
+
+.clip {
+  margin: 0 auto;
+  width: min(268px, 100%);
+  /* cqw units below are a share of the frame's own width, so the corner radius
+     stays proportional however the column resizes. */
+  container-type: inline-size;
+}
+
+.clip-frame {
+  position: relative;
+  border-radius: 11.5cqw;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+}
+.clip-frame video { display: block; width: 100%; height: auto; }
+
+.clip-play {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  border: 0; padding: 0; cursor: pointer;
+  background: rgba(20, 16, 28, 0.28);
+  color: #fff;
+  transition: background 0.2s ease;
+}
+.clip-play svg {
+  width: 54px; height: 54px;
+  fill: none; stroke: currentColor; stroke-width: 1.4;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+  transition: opacity 0.2s ease;
+}
+.clip-play .i-play, .clip-play .i-pause { fill: currentColor; stroke: none; }
+
+/* While it plays the overlay gets out of the way, but the control is still
+   there on hover or keyboard focus so a playing clip can be paused. */
+.clip-play.playing { background: transparent; }
+.clip-play.playing svg { opacity: 0; }
+.clip-play.playing:hover svg,
+.clip-play.playing:focus-visible svg { opacity: 1; }
+.clip-play .i-pause { display: none; }
+.clip-play.playing .i-play { display: none; }
+.clip-play.playing .i-pause { display: block; }
+
+/* ---------- screenshot strip ---------- */
+
+.section.tight { padding-top: 0; border-top: 0; }
+
+.shots {
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 820px) { .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } }
+@media (max-width: 420px) { .shots { grid-template-columns: 1fr; max-width: 280px; margin-inline: auto; } }
+
+.shot { margin: 0; container-type: inline-size; }
+.shot img {
+  display: block; width: 100%; height: auto;
+  border-radius: 11.5cqw;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.shot figcaption {
+  margin-top: 11px; text-align: center;
+  font-size: 14.5px; color: var(--faint);
+}
+
 /* ---------- mood grid ---------- */
 
 .moods {
