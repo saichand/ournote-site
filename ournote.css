@@ -219,9 +219,13 @@ p:last-child { margin-bottom: 0; }
   container-type: inline-size;
 }
 
+/* The clip is a phone screen, so its corner has to be the phone's corner. The
+   capture is 1320px wide with a 186px radius (62pt at 3x on a 16 Pro Max),
+   which is 14.09% of the width. cqw keeps that true at any rendered size.
+   carddle.net uses 15.42 for the same reason, from a narrower 1206px capture. */
 .clip-frame {
   position: relative;
-  border-radius: 11.5cqw;
+  border-radius: 14.09cqw;
   overflow: hidden;
   background: var(--card);
   border: 1px solid var(--line);
@@ -269,7 +273,7 @@ p:last-child { margin-bottom: 0; }
 .shot { margin: 0; container-type: inline-size; }
 .shot img {
   display: block; width: 100%; height: auto;
-  border-radius: 11.5cqw;
+  border-radius: 14.09cqw;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
